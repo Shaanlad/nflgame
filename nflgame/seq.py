@@ -1,8 +1,8 @@
 import functools
 import itertools
 import operator
+from collections import OrderedDict
 
-from nflgame import OrderedDict
 from nflgame import statmap
 
 _BUILTIN_PREDS = {
@@ -299,7 +299,7 @@ class GenPlayerStats (Gen):
         """
         import csv
 
-        fields, rows = set([]), []
+        fields, rows = {}, []
         players = list(self)
         for p in players:
             for field, stat in p.stats.iteritems():
@@ -330,7 +330,7 @@ class GenPlayerStats (Gen):
 
         fieldNames = ["name", "id", "home", "team", "pos"] + fields
         rows = [dict((f, f) for f in fieldNames)] + rows
-        csv.DictWriter(open(fileName, 'w+'), fieldNames).writerows(rows)
+        csv.DictWriter(open(fileName, 'wb+'), fieldNames).writerows(rows)
 
     def __add__(self, other):
         """

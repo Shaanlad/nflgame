@@ -80,28 +80,23 @@ There are several active contributors to nflgame that watch the issue tracker.
 We tend to respond fairly quickly!
 """
 
-try:
-    from collections import OrderedDict
-except:
-    from ordereddict import OrderedDict  # from PyPI
 import itertools
 
 import sys
 
-if sys.version_info[0] != 2 or sys.version_info[1] < 6:
-	print("nflgame requires Python 2.6+ and does not yet work with Python 3")
-	print("You are running Python version {}.{}".format(
-		sys.version_info.major, sys.version_info.minor))
-	sys.exit(1)
+if sys.version_info[:2] != (2, 7):
+    print("nflgame requires Python 2.7 and does not yet work with Python 3")
+    print("You are running Python version {}.{}".format(
+        sys.version_info.major, sys.version_info.minor))
+    sys.exit(1)
 
-import nflgame.game
-import nflgame.live
-import nflgame.player
-import nflgame.sched
-import nflgame.seq
-from nflgame.version import __version__
+import nflgame.game  # noqa
+import nflgame.live  # noqa
+import nflgame.player  # noqa
+import nflgame.sched  # noqa
+import nflgame.seq  # noqaj
+from nflgame.version import __version__  # noqa
 
-assert OrderedDict  # Asserting the import for static analysis.
 VERSION = __version__  # Deprecated. Backwards compatibility.
 
 NoPlayers = nflgame.seq.GenPlayerStats(None)
@@ -134,6 +129,7 @@ teams = [
     ['IND', 'Indianapolis', 'Colts', 'Indianapolis Colts'],
     ['JAC', 'Jacksonville', 'Jaguars', 'Jacksonville Jaguars', 'JAX'],
     ['KC', 'Kansas City', 'Chiefs', 'Kansas City Chiefs', 'K.C.', 'KAN'],
+    ['LA', 'Los Angeles', 'Rams', 'Los Angeles Rams', 'L.A.'],
     ['MIA', 'Miami', 'Dolphins', 'Miami Dolphins'],
     ['MIN', 'Minnesota', 'Vikings', 'Minnesota Vikings'],
     ['NE', 'New England', 'Patriots', 'New England Patriots', 'N.E.', 'NWE'],

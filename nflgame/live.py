@@ -65,7 +65,7 @@ _WEEK_INTERVAL = 60 * 60 * 12
 How often to check what the current week is. By default, it is twice a day.
 """
 
-# _CUR_SCHEDULE = "http://www.nfl.com/liveupdate/scorestrip/ss.xml"
+#_CUR_SCHEDULE = "http://www.nfl.com/liveupdate/scorestrip/ss.xml"
 # """
 # Pinged infrequently to discover the current week number, year and week type.
 # The actual schedule of games is taken from the schedule module.
